@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Number Guesser Game!</title>
+		<link rel="stylesheet" href="style.css">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+
+	<body>
+
+		<header>
+			<h1><strong>Number</strong> Guesser</h1>
+		</header>
+
+
+<div>
+
+		<section>
+			<label for="min">Min:</label>
+			<input id="min" type="number" value="0">
+			<label for="max">Max:</label>
+			<input id="max" type="number" value ="100">
+
+			<!-- <button id="adjustButton">Go</button> -->
+
+			<input id="guess" type="number" placeholder="Enter your guess between 0 and 100" min="0" max="100">
+			<button id="guessButton" disabled="true">Guess</button>
+			<button id="clearButton" disabled="true">Clear</button>
+		</section>
+		<p id="errorMessage"></p>
+		<section id="resultSection">
+			<p id="lastGuess">Your last guess was</p>
+			<h2></h2>
+			<p id="result"></p>
+		</section>
+
+
+		<button id="resetButton" disabled="true">Reset</button>
+</div>
+	</body>
+</html>
