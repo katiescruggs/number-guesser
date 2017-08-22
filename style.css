@@ -30,9 +30,28 @@ strong {
 }
 
 article {
-	border: 2px solid #929497;
-	float: left;
-	text-align: left;
+	width: 160px;
+	position: absolute;
+	top: 104px;
+	left: 90px;
+
+	text-align: center;
+	border: 10px solid #D0D2D3;
+	color: #929497;
+	margin-top: 40px;
+	margin-left: 40px;
+	padding: 20px;
+}
+
+h3 {
+	color: #ED458B;
+	font-size: 150%;
+	margin-bottom: 20px;
+}
+
+#levelP, #possiblePoints {
+	font-size: 100%;
+	color: #929497;
 }
 
 label {
