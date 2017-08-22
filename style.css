@@ -9,7 +9,7 @@ body {
 }
 
 div {
-	width: 70%;
+	width: 75%;
 	margin: auto;
 }
 
@@ -30,6 +30,7 @@ strong {
 }
 
 article {
+	background-color: #FFFFFF;
 	width: 160px;
 	position: absolute;
 	top: 104px;
