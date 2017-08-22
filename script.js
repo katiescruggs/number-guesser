@@ -126,7 +126,6 @@ function resetPage() {
 }
  
 function checkGuess() {
-	
 	errorMessage.style.display = 'none';
 	resetButton.disabled = false;
 
