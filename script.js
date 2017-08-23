@@ -117,7 +117,7 @@ function resetPage() {
 		points = 10;
 
 		document.querySelector('#playerOneScore').innerHTML = 'Player 1 Score: ' + score;
-		document.querySelector('#playerTwoScore').innerHTML = 'Player 2 Score: ' + score;
+		document.querySelector('#playerTwoScore').innerHTML = 'Player 2 Score: ' + score2;
 		document.querySelector('#levelP').innerHTML = 'Level ' + level;
 		document.querySelector('#levelP2').innerHTML = 'Level ' + level;
 		document.querySelector('#possiblePoints').innerHTML = points + ' Points';
@@ -183,8 +183,18 @@ function displayTooLow(guess) {
 
 function displayJustRight(guess) {
 	//adjust score
-	score += points;
-	document.querySelector('#playerOneScore').innerHTML = 'Player 1 Score: ' + score;
+
+	//if it's Player 1's victory
+	if(document.querySelector('#scoreBoard').classList.contains('yourTurn')) {
+		score += points;
+		document.querySelector('#playerOneScore').innerHTML = 'Player 1 Score: ' + score;
+	//if it's Player 2's victory
+	} else {
+		score2 += points;
+		document.querySelector('#playerTwoScore').innerHTML = 'Player 2 Score: ' + score2;
+	}
+
+
 	document.querySelector('#possiblePoints').innerHTML = '-- Points';
 	document.querySelector('#possiblePoints2').innerHTML = '-- Points';
 
