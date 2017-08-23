@@ -15,6 +15,9 @@ var resetButton;
 var minMaxInputs;
 var guessInputField;
 var errorMessage;
+var startButton;
+var playerOneName;
+var playerTwoName;
 
 window.onload = function() {
 
@@ -28,11 +31,13 @@ window.onload = function() {
 	minMaxInputs = document.querySelectorAll('#min, #max');
 	guessInputField = document.querySelector('#guess');
 	errorMessage = document.querySelector('#errorMessage');
+	startButton = document.querySelector('#startButton');
 
 	//set up event listeners
 	guessButton.addEventListener('click', checkGuess);
 	clearButton.addEventListener('click', clearInput);
 	resetButton.addEventListener('click', resetPage);
+	startButton.addEventListener('click', startGame);
 	minMaxInputs[0].addEventListener('blur', adjustMinMax);
 	minMaxInputs[1].addEventListener('blur', adjustMinMax);
 	guessInputField.addEventListener('keyup', function(event){
@@ -43,8 +48,22 @@ window.onload = function() {
 		} else if (guessInputField.value === '') {
 			guessButton.disabled = true;
 			clearButton.disabled = true;
-		} 
+		}	 
 	});
+
+	document.querySelector('#player1Name').addEventListener('blur', function(event) {
+		playerOneName = document.querySelector('#player1Name').value;
+		document.querySelector('#playerOneScore').innerHTML = playerOneName + "'s <br> Score: " + score;
+	});
+
+	document.querySelector('#player2Name').addEventListener('blur', function(event) {
+		playerTwoName = document.querySelector('#player2Name').value;
+		document.querySelector('#playerTwoScore').innerHTML = playerTwoName + "'s <br> Score: " + score2;
+	})
+}
+
+function startGame() {
+	document.querySelector('#myModal').style.display = 'none';
 }
 
 function getRandomNumber() {
@@ -116,8 +135,8 @@ function resetPage() {
 		level = 1;
 		points = 10;
 
-		document.querySelector('#playerOneScore').innerHTML = 'Player 1 Score: ' + score;
-		document.querySelector('#playerTwoScore').innerHTML = 'Player 2 Score: ' + score2;
+		document.querySelector('#playerOneScore').innerHTML = playerOneName + "'s <br> Score: " + score;
+		document.querySelector('#playerTwoScore').innerHTML = playerTwoName + "'s <br> Score: " + score2;
 		document.querySelector('#levelP').innerHTML = 'Level ' + level;
 		document.querySelector('#levelP2').innerHTML = 'Level ' + level;
 		document.querySelector('#possiblePoints').innerHTML = points + ' Points';
@@ -187,11 +206,11 @@ function displayJustRight(guess) {
 	//if it's Player 1's victory
 	if(document.querySelector('#scoreBoard').classList.contains('yourTurn')) {
 		score += points;
-		document.querySelector('#playerOneScore').innerHTML = 'Player 1 Score: ' + score;
+		document.querySelector('#playerOneScore').innerHTML = playerOneName + "'s <br> Score: " + score;
 	//if it's Player 2's victory
 	} else {
 		score2 += points;
-		document.querySelector('#playerTwoScore').innerHTML = 'Player 2 Score: ' + score2;
+		document.querySelector('#playerTwoScore').innerHTML = playerTwoName + "'s <br> Score: " + score2;
 	}
 
 
