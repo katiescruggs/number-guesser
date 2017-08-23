@@ -21,10 +21,6 @@ window.onload = function() {
 	//assign value to global variable randomNumber
 	getRandomNumber();
 
-	//initialize scoreboard variables
-	// level = 1;
-	// score = 0;
-
 	//initialize DOM variables
 	guessButton = document.querySelector('#guessButton');
 	clearButton = document.querySelector('#clearButton');
@@ -78,6 +74,9 @@ function adjustMinMax() {
 		getRandomNumber();
 		points = ((max - min) / 10);
 		document.querySelector('#possiblePoints').innerHTML = points + ' Points';
+document.querySelector('#possiblePoints2').innerHTML = points + ' Points';document.querySelector('#possiblePoints2').inne		
+rHTML = points + ' Points';
+				document.querySelector('#possiblePoints2').innerHTML = points + ' Points';
 
 		guessInputField.placeholder = 'Enter your guess between ' + min + ' and ' + max;
 		guessInputField.disabled = false;
@@ -113,12 +112,15 @@ function resetPage() {
 
 		//reset score, level, and points variables
 		score = 0;
+		score2 = 0;
 		level = 1;
 		points = 10;
 
-		document.querySelector('h3').innerHTML = 'Score: ' + score;
+		document.querySelector('#playerOneScore').innerHTML = 'Player 1 Score: ' + score;
+		document.querySelector('#playerTwoScore').innerHTML = 'Player 2 Score: ' + score;
 		document.querySelector('#levelP').innerHTML = 'Level ' + level;
 		document.querySelector('#possiblePoints').innerHTML = points + ' Points';
+		document.querySelector('#possiblePoints2').innerHTML = points + ' Points';
 
 		guessInputField.placeholder = 'Enter your guess between ' + min + ' and ' + max;
 		resetButton.disabled = true;
@@ -156,6 +158,7 @@ function displayTooHigh(guess) {
 	//reduce points with for wrong guess
 		points--;
 		document.querySelector('#possiblePoints').innerHTML = points + ' Points';
+		document.querySelector('#possiblePoints2').innerHTML = points + ' Points';
 
 	togglePlayer();
 	document.querySelector('h2').innerHTML = guess;
@@ -168,6 +171,7 @@ function displayTooLow(guess) {
 	//reduce points with for wrong guess
 		points--;
 		document.querySelector('#possiblePoints').innerHTML = points + ' Points';
+		document.querySelector('#possiblePoints2').innerHTML = points + ' Points';
 
 	togglePlayer();
 	document.querySelector('h2').innerHTML = guess;
@@ -179,8 +183,9 @@ function displayTooLow(guess) {
 function displayJustRight(guess) {
 	//adjust score
 	score += points;
-	document.querySelector('h3').innerHTML = 'Score: ' + score;
+	document.querySelector('#playerOneScore').innerHTML = 'Player 1 Score: ' + score;
 	document.querySelector('#possiblePoints').innerHTML = '-- Points';
+	document.querySelector('#possiblePoints2').innerHTML = '-- Points';
 
 	console.log('score is ' + score);
 
@@ -219,6 +224,7 @@ function nextLevel() {
 	//adjust points for new level
 		points = ((max - min) / 10);
 		document.querySelector('#possiblePoints').innerHTML = points + ' Points';
+		document.querySelector('#possiblePoints2').innerHTML = points + ' Points';
 
 	
 	document.querySelector('#resetButton').innerHTML = 'Reset';
