@@ -186,7 +186,7 @@ function displayTooHigh(guess) {
 }
 
 function displayTooLow(guess) {
-	//reduce points with for wrong guess
+	//reduce points for wrong guess
 		points--;
 		document.querySelector('#possiblePoints').innerHTML = points + ' Points';
 		document.querySelector('#possiblePoints2').innerHTML = points + ' Points';
@@ -199,18 +199,6 @@ function displayTooLow(guess) {
 }
 
 function displayJustRight(guess) {
-	//adjust score
-
-	//if it's Player 1's victory
-	if(document.querySelector('#scoreBoard').classList.contains('yourTurn')) {
-		score += points;
-		document.querySelector('#playerOneScore').innerHTML = playerOneName + "'s <br> Score: " + score;
-	//if it's Player 2's victory
-	} else {
-		score2 += points;
-		document.querySelector('#playerTwoScore').innerHTML = playerTwoName + "'s <br> Score: " + score2;
-	}
-
 
 	document.querySelector('#possiblePoints').innerHTML = '-- Points';
 	document.querySelector('#possiblePoints2').innerHTML = '-- Points';
@@ -242,6 +230,37 @@ function displayJustRight(guess) {
 
 	// resetButton.disabled = false;
 	resetButton.innerHTML = 'Next Level!';
+
+	//adjust player 1's score
+	if(document.querySelector('#scoreBoard').classList.contains('yourTurn')) {
+		score += points;
+		document.querySelector('#playerOneScore').innerHTML = playerOneName + "'s <br> Score: " + score;
+
+		//if Player 1 has won the game
+		if(score >= 100) {
+			resetPage();
+			resetPage();
+			document.querySelector('#myModal').style.display = 'block';
+			document.querySelector('h4').innerHTML = '<strong>' + playerOneName + ' has won!</strong>';
+			document.querySelector('#modalP1').innerHTML = '';
+			document.querySelector('#modalP2').innerHTML = 'To play again, please enter the names of the players and click the Start Button.';
+		}
+
+	//adjust player 2's score
+	} else {
+		score2 += points;
+		document.querySelector('#playerTwoScore').innerHTML = playerTwoName + "'s <br> Score: " + score2;
+
+		//if Player 2 has won the game
+		if(score2 >= 100) {
+			resetPage();
+			resetPage();
+			document.querySelector('#myModal').style.display = 'block';
+			document.querySelector('h4').innerHTML = '<strong>' + playerTwoName + ' has won!</strong>';
+			document.querySelector('#modalP1').innerHTML = '';
+			document.querySelector('#modalP2').innerHTML = 'To play again, please enter the names of the players and click the Start Button.';
+		}
+	}
 }
 
 function nextLevel() {
