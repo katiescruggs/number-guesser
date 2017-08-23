@@ -16,8 +16,8 @@ var minMaxInputs;
 var guessInputField;
 var errorMessage;
 var startButton;
-var playerOneName;
-var playerTwoName;
+var playerOneName = 'Player 1';
+var playerTwoName = 'Player 2';
 
 window.onload = function() {
 
@@ -93,10 +93,8 @@ function adjustMinMax() {
 		getRandomNumber();
 		points = ((max - min) / 10);
 		document.querySelector('#possiblePoints').innerHTML = points + ' Points';
-document.querySelector('#possiblePoints2').innerHTML = points + ' Points';document.querySelector('#possiblePoints2').inne		
-rHTML = points + ' Points';
-				document.querySelector('#possiblePoints2').innerHTML = points + ' Points';
-
+		document.querySelector('#possiblePoints2').innerHTML = points + ' Points';
+	
 		guessInputField.placeholder = 'Enter your guess between ' + min + ' and ' + max;
 		guessInputField.disabled = false;
 	}
