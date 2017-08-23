@@ -207,8 +207,26 @@ h2 {
 	background-color: #FFFFFF;
 	padding: 20px;
 	border: 1px solid black;
-	width: 50%;
-	margin: auto;
+	width: 90%;
+	margin: 40px auto;
+	box-shadow: 0 0 3em #ED458B;
+}
+
+h4 {
+	font-size: 150%;
+}
+
+.modal-content > p {
+	margin: 25px 0px;
+	font-size: 120%;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+
+#player1Name, #player2Name  {
+	width: 25%;
+	display: inline-block;
+	margin-bottom: 10px;
 }
 
 
