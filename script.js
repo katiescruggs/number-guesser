@@ -119,6 +119,7 @@ function resetPage() {
 		document.querySelector('#playerOneScore').innerHTML = 'Player 1 Score: ' + score;
 		document.querySelector('#playerTwoScore').innerHTML = 'Player 2 Score: ' + score;
 		document.querySelector('#levelP').innerHTML = 'Level ' + level;
+		document.querySelector('#levelP2').innerHTML = 'Level ' + level;
 		document.querySelector('#possiblePoints').innerHTML = points + ' Points';
 		document.querySelector('#possiblePoints2').innerHTML = points + ' Points';
 
@@ -220,7 +221,8 @@ function nextLevel() {
 	//adjust Level in scoreboard
 		level++;
 		document.querySelector('#levelP').innerHTML = 'Level ' + level;
-	
+		document.querySelector('#levelP2').innerHTML = 'Level ' + level;
+
 	//adjust points for new level
 		points = ((max - min) / 10);
 		document.querySelector('#possiblePoints').innerHTML = points + ' Points';
