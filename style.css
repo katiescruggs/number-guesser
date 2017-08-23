@@ -33,8 +33,7 @@ article {
 	background-color: #FFFFFF;
 	width: 160px;
 	position: absolute;
-	top: 104px;
-	left: 72px;
+	
 
 	text-align: center;
 	border: 10px solid #D0D2D3;
@@ -42,6 +41,16 @@ article {
 	margin-top: 40px;
 	margin-left: 40px;
 	padding: 20px;
+}
+
+#scoreBoard {
+	top: 104px;
+	left: 72px;
+}
+
+#scoreBoard2 {
+	top: 104px;
+	right: 112px;
 }
 
 h3 {
