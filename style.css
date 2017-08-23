@@ -53,13 +53,17 @@ article {
 	right: 112px;
 }
 
+.yourTurn {
+	background-color: blue;
+}
+
 h3 {
 	color: #ED458B;
 	font-size: 150%;
 	margin-bottom: 20px;
 }
 
-#levelP, #possiblePoints {
+#levelP, #possiblePoints, #levelP2, #possiblePoints2 {
 	font-size: 100%;
 	color: #929497;
 }

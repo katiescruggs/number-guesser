@@ -5,6 +5,7 @@ var min = 0;
 
 var level = 1;
 var score = 0;
+var score2 = 0;
 var points = 10;
 
 //declare DOM global variables
@@ -98,7 +99,7 @@ function resetPage() {
 	clearButton.disabled = true;
 
 	//if the user has won
-	if(resetButton.innerHTML === 'Play again with a wider range!') {
+	if(resetButton.innerHTML === 'Next Level!') {
 		nextLevel();
 
 	//resetting to beginning
@@ -156,6 +157,7 @@ function displayTooHigh(guess) {
 		points--;
 		document.querySelector('#possiblePoints').innerHTML = points + ' Points';
 
+	togglePlayer();
 	document.querySelector('h2').innerHTML = guess;
 	document.querySelector('#result').innerHTML = 'That is too high.';
 	document.querySelector('#resultSection').style.display = 'block';
@@ -167,7 +169,7 @@ function displayTooLow(guess) {
 		points--;
 		document.querySelector('#possiblePoints').innerHTML = points + ' Points';
 
-
+	togglePlayer();
 	document.querySelector('h2').innerHTML = guess;
 	document.querySelector('#result').innerHTML = 'That is too low.';
 	document.querySelector('#resultSection').style.display = 'block';
@@ -206,7 +208,7 @@ function displayJustRight(guess) {
 	result.innerHTML ='BOOM!';
 
 	// resetButton.disabled = false;
-	resetButton.innerHTML = 'Play again with a wider range!';
+	resetButton.innerHTML = 'Next Level!';
 }
 
 function nextLevel() {
@@ -226,6 +228,19 @@ function nextLevel() {
 	document.querySelector('#min').value = min;
 	document.querySelector('#max').value = max;
 	guessInputField.placeholder = 'Enter your guess between ' + min + ' and ' + max;
+}
+
+function togglePlayer() {
+	if(document.querySelector('#scoreBoard').classList.contains('yourTurn')) {
+		document.querySelector('#scoreBoard').classList.remove('yourTurn');
+		document.querySelector('#scoreBoard2').classList.add('yourTurn');
+	} else {
+		document.querySelector('#scoreBoard2').classList.remove('yourTurn');
+		document.querySelector('#scoreBoard').classList.add('yourTurn');
+	}
+
+
+
 }
 
 
