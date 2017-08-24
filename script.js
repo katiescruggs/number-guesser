@@ -9,13 +9,13 @@ var score2 = 0;
 var points = 10;
 
 //declare DOM global variables
-var guessButton;
-var clearButton;
-var resetButton;
-var minMaxInputs;
-var guessInputField;
-var errorMessage;
-var startButton;
+var guessButton = document.querySelector('#guessButton');
+var clearButton = document.querySelector('#clearButton');
+var resetButton = resetButton = document.querySelector('#resetButton');
+var minMaxInputs = document.querySelectorAll('#min, #max');
+var guessInputField = document.querySelector('#guess');
+var errorMessage = document.querySelector('#errorMessage');
+var startButton = document.querySelector('#startButton');
 var playerOneName = 'Player 1';
 var playerTwoName = 'Player 2';
 
@@ -23,15 +23,6 @@ window.onload = function() {
 
 	//assign value to global variable randomNumber
 	getRandomNumber();
-
-	//initialize DOM variables
-	guessButton = document.querySelector('#guessButton');
-	clearButton = document.querySelector('#clearButton');
-	resetButton = document.querySelector('#resetButton');
-	minMaxInputs = document.querySelectorAll('#min, #max');
-	guessInputField = document.querySelector('#guess');
-	errorMessage = document.querySelector('#errorMessage');
-	startButton = document.querySelector('#startButton');
 
 	//set up event listeners
 	guessButton.addEventListener('click', checkGuess);
@@ -50,16 +41,14 @@ window.onload = function() {
 			clearButton.disabled = true;
 		}	 
 	});
-
 	document.querySelector('#player1Name').addEventListener('blur', function(event) {
 		playerOneName = document.querySelector('#player1Name').value;
 		document.querySelector('#playerOneScore').innerHTML = playerOneName + "'s <br> Score: " + score;
 	});
-
 	document.querySelector('#player2Name').addEventListener('blur', function(event) {
 		playerTwoName = document.querySelector('#player2Name').value;
 		document.querySelector('#playerTwoScore').innerHTML = playerTwoName + "'s <br> Score: " + score2;
-	})
+	});
 }
 
 function startGame() {
@@ -74,7 +63,6 @@ function getRandomNumber() {
 function adjustMinMax() {
 	min = parseInt(document.querySelector('#min').value);
 	max = parseInt(document.querySelector('#max').value);
-
 
 	//errors in min and max
 	if(isNaN(min)) {
@@ -149,20 +137,21 @@ function resetPage() {
 function checkGuess() {
 	errorMessage.style.display = 'none';
 	resetButton.disabled = false;
-
 	minMaxInputs[0].disabled = true;
 	minMaxInputs[1].disabled = true;
+
 	var guess = parseInt(document.querySelector('#guess').value);
-	
+	clearInput();
+
 	//errors in guess
 	if(guess > max || guess < min || isNaN(guess)) {
-
-		// alert('Please enter a number between ' + min + ' and ' + max + '.');
 		errorMessage.style.display = 'block';
 		errorMessage.innerHTML = 'Please enter a valid number between ' + min + ' and ' + max;
 		document.querySelector('#resultSection').style.display = 'none';
 		guessButton.disabled = true;
 		clearButton.disabled = true;
+
+	//no errors in guess
 	} else if(guess > randomNumber) {
 		displayTooHigh(guess);
 	} else if(guess < randomNumber) {
@@ -173,37 +162,32 @@ function checkGuess() {
 }
 
 function displayTooHigh(guess) {
-	//reduce points with for wrong guess
-		points--;
-		document.querySelector('#possiblePoints').innerHTML = points + ' Points';
-		document.querySelector('#possiblePoints2').innerHTML = points + ' Points';
+	//reduce points for wrong guess
+	points--;
+	document.querySelector('#possiblePoints').innerHTML = points + ' Points';
+	document.querySelector('#possiblePoints2').innerHTML = points + ' Points';
 
 	togglePlayer();
 	document.querySelector('h2').innerHTML = guess;
 	document.querySelector('#result').innerHTML = 'That is too high.';
 	document.querySelector('#resultSection').style.display = 'block';
-	// resetButton.disabled = false;
 }
 
 function displayTooLow(guess) {
 	//reduce points for wrong guess
-		points--;
-		document.querySelector('#possiblePoints').innerHTML = points + ' Points';
-		document.querySelector('#possiblePoints2').innerHTML = points + ' Points';
+	points--;
+	document.querySelector('#possiblePoints').innerHTML = points + ' Points';
+	document.querySelector('#possiblePoints2').innerHTML = points + ' Points';
 
 	togglePlayer();
 	document.querySelector('h2').innerHTML = guess;
 	document.querySelector('#result').innerHTML = 'That is too low.';
 	document.querySelector('#resultSection').style.display = 'block';
-	// resetButton.disabled = false;
 }
 
 function displayJustRight(guess) {
-
 	document.querySelector('#possiblePoints').innerHTML = '-- Points';
 	document.querySelector('#possiblePoints2').innerHTML = '-- Points';
-
-	console.log('score is ' + score);
 
 	document.querySelector('#resultSection').style.display = 'block';
 	guessButton.disabled = true;
@@ -213,15 +197,15 @@ function displayJustRight(guess) {
 	var body = document.querySelector('body');
 	body.classList.add('boom');
 	document.querySelector('h2').innerHTML = 'BOOM!';
-	document.querySelector('#lastGuess').style.display = 'none';
-	result.style.display = 'none';
+	document.querySelector('#lastGuess').style.visibility = 'hidden';
+	result.style.visibility = 'hidden';
 
 	//change BOOM page back to normal after 1 second
 	setTimeout(function() {
 		body.classList.remove('boom');
 		document.querySelector('h2').innerHTML = guess;
-		result.style.display = 'block';
-		document.querySelector('#lastGuess').style.display = 'block';
+		result.style.visibility = 'visible';
+		document.querySelector('#lastGuess').style.visibility = 'visible';
 		document.querySelector('#lastGuess').innerText = 'Your last guess was';		
 	}, 1000)
 
@@ -274,7 +258,6 @@ function nextLevel() {
 		document.querySelector('#possiblePoints').innerHTML = points + ' Points';
 		document.querySelector('#possiblePoints2').innerHTML = points + ' Points';
 
-	
 	document.querySelector('#resetButton').innerHTML = 'Reset';
 	min -= 10;
 	max += 10;
