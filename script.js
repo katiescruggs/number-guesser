@@ -209,10 +209,7 @@ function displayJustRight(guess) {
 		document.querySelector('#lastGuess').innerText = 'Your last guess was';		
 	}, 1000)
 
-	//document.querySelector('h2').innerHTML = guess;
 	result.innerHTML ='BOOM!';
-
-	// resetButton.disabled = false;
 	resetButton.innerHTML = 'Next Level!';
 
 	//adjust player 1's score
@@ -275,10 +272,4 @@ function togglePlayer() {
 		document.querySelector('#scoreBoard2').classList.remove('yourTurn');
 		document.querySelector('#scoreBoard').classList.add('yourTurn');
 	}
-
-
-
 }
-
-
-
