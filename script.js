@@ -49,6 +49,16 @@ window.onload = function() {
 		playerTwoName = document.querySelector('#player2Name').value;
 		document.querySelector('#playerTwoScore').innerHTML = playerTwoName + "'s <br> Score: " + score2;
 	});
+	document.querySelector('#player1Name').addEventListener('keyup', function(event) {
+		if(event.keyCode === 13) {
+			startGame();
+		}
+	});
+	document.querySelector('#player2Name').addEventListener('keyup', function(event) {
+		if(event.keyCode === 13) {
+			startGame();
+		}
+	});
 }
 
 function startGame() {
@@ -246,7 +256,7 @@ function displayJustRight(guess) {
 			setTimeout(function() {
 				body.classList.add('boom');	
 			}, 1000);
-			
+
 			document.querySelector('#myModal').style.display = 'block';
 			document.querySelector('h4').innerHTML = '<strong>' + playerTwoName + ' has won!</strong>';
 			document.querySelector('#modalP1').innerHTML = '';
