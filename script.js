@@ -43,11 +43,19 @@ window.onload = function() {
 		}	 
 	});
 	document.querySelector('#player1Name').addEventListener('blur', function(event) {
-		playerOneName = document.querySelector('#player1Name').value;
+		if(document.querySelector('#playerOneName')) {
+			playerOneName = document.querySelector('#player1Name').value;
+		} else {
+			playerOneName = 'Player 1';			
+		}
 		document.querySelector('#playerOneScore').innerHTML = playerOneName + "'s <br> Score: " + score;
 	});
 	document.querySelector('#player2Name').addEventListener('blur', function(event) {
-		playerTwoName = document.querySelector('#player2Name').value;
+		if(document.querySelector('#playerTwoName')) {
+			playerTwoName = document.querySelector('#player2Name').value;
+		} else {
+			playerTwoName = 'Player 2';
+		}
 		document.querySelector('#playerTwoScore').innerHTML = playerTwoName + "'s <br> Score: " + score2;
 	});
 	document.querySelector('#player1Name').addEventListener('keyup', function(event) {
@@ -63,7 +71,10 @@ window.onload = function() {
 }
 
 function startGame() {
-	guessInputField.focus();
+	setTimeout(function() {
+		guessInputField.focus();
+	}, 250);
+
 	document.querySelector('#myModal').style.display = 'none';
 	document.querySelector('body').classList.remove('boom');
 }
@@ -108,7 +119,6 @@ function clearInput() {
 }
 
 function resetPage() {
-
 	setTimeout(function() {
 		guessInputField.focus();
 	}, 250);
