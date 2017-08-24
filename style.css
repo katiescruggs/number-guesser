@@ -211,8 +211,8 @@ h4 {
 .modal-content > p {
 	font-size: 120%;
 	margin: 25px 0px;
-	padding-right: 50px;
 	padding-left: 50px;
+	padding-right: 50px;
 }
 
 #player1Name, #player2Name  {
