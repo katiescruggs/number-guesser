@@ -20,6 +20,7 @@ var playerOneName = 'Player 1';
 var playerTwoName = 'Player 2';
 
 window.onload = function() {
+	document.querySelector('#player1Name').focus();
 
 	//assign value to global variable randomNumber
 	getRandomNumber();
@@ -62,6 +63,7 @@ window.onload = function() {
 }
 
 function startGame() {
+	guessInputField.focus();
 	document.querySelector('#myModal').style.display = 'none';
 	document.querySelector('body').classList.remove('boom');
 }
@@ -106,6 +108,13 @@ function clearInput() {
 }
 
 function resetPage() {
+
+	setTimeout(function() {
+		guessInputField.focus();
+	}, 250);
+	
+
+	errorMessage.style.display = 'none';
 	document.querySelector('#resultSection').style.display = 'none';
 	guessInputField.value = '';
 	getRandomNumber();
@@ -197,6 +206,8 @@ function displayTooLow(guess) {
 }
 
 function displayJustRight(guess) {
+	resetButton.focus();
+
 	document.querySelector('#possiblePoints').innerHTML = '-- Points';
 	document.querySelector('#possiblePoints2').innerHTML = '-- Points';
 
