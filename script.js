@@ -53,6 +53,7 @@ window.onload = function() {
 
 function startGame() {
 	document.querySelector('#myModal').style.display = 'none';
+	document.querySelector('body').classList.remove('boom');
 }
 
 function getRandomNumber() {
@@ -221,6 +222,11 @@ function displayJustRight(guess) {
 		if(score >= 100) {
 			resetPage();
 			resetPage();
+
+			setTimeout(function() {
+				body.classList.add('boom');	
+			}, 1000);
+			
 			document.querySelector('#myModal').style.display = 'block';
 			document.querySelector('h4').innerHTML = '<strong>' + playerOneName + ' has won!</strong>';
 			document.querySelector('#modalP1').innerHTML = '';
@@ -236,10 +242,16 @@ function displayJustRight(guess) {
 		if(score2 >= 100) {
 			resetPage();
 			resetPage();
+			
+			setTimeout(function() {
+				body.classList.add('boom');	
+			}, 1000);
+			
 			document.querySelector('#myModal').style.display = 'block';
 			document.querySelector('h4').innerHTML = '<strong>' + playerTwoName + ' has won!</strong>';
 			document.querySelector('#modalP1').innerHTML = '';
 			document.querySelector('#modalP2').innerHTML = 'To play again, please enter the names of the players and click the Start Button.';
+			togglePlayer();
 		}
 	}
 }
