@@ -43,19 +43,11 @@ window.onload = function() {
 		}	 
 	});
 	document.querySelector('#player1Name').addEventListener('blur', function(event) {
-		if(document.querySelector('#playerOneName')) {
-			playerOneName = document.querySelector('#player1Name').value;
-		} else {
-			playerOneName = 'Player 1';			
-		}
+		playerOneName = document.querySelector('#player1Name').value;
 		document.querySelector('#playerOneScore').innerHTML = playerOneName + "'s <br> Score: " + score;
 	});
 	document.querySelector('#player2Name').addEventListener('blur', function(event) {
-		if(document.querySelector('#playerTwoName')) {
-			playerTwoName = document.querySelector('#player2Name').value;
-		} else {
-			playerTwoName = 'Player 2';
-		}
+		playerTwoName = document.querySelector('#player2Name').value;
 		document.querySelector('#playerTwoScore').innerHTML = playerTwoName + "'s <br> Score: " + score2;
 	});
 	document.querySelector('#player1Name').addEventListener('keyup', function(event) {
