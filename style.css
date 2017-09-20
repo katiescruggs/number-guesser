@@ -62,7 +62,10 @@ h3 {
 	margin-bottom: 20px;
 }
 
-#levelP, #possiblePoints, #levelP2, #possiblePoints2 {
+#levelP,
+#possiblePoints, 
+#levelP2,
+#possiblePoints2 {
 	color: #929497;
 	font-size: 100%;
 }
