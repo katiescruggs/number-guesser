@@ -4,13 +4,13 @@
 
 body {
 	font-family: Open Sans;
-	text-align: center;
 	font-size: large;
+	text-align: center;
 }
 
-div {
-	width: 70%;
+#mainContent {
 	margin: auto;
+	width: 80%;
 }
 
 header {
@@ -19,8 +19,8 @@ header {
 
 h1 {
 	color: #E6E7E8;
-	font-weight: normal;
 	font-size: 350%;
+	font-weight: normal;
 	padding: 10px;
 }
 
@@ -31,17 +31,29 @@ strong {
 
 article {
 	background-color: #FFFFFF;
-	width: 160px;
-	position: absolute;
-	top: 104px;
-	left: 72px;
-
-	text-align: center;
 	border: 10px solid #D0D2D3;
 	color: #929497;
 	margin-top: 40px;
 	margin-left: 40px;
 	padding: 20px;
+	position: absolute;
+	text-align: center;
+	width: 160px;
+}
+
+#scoreBoard {
+	left: 72px;
+	top: 104px;
+}
+
+#scoreBoard2 {
+	right: 112px;
+	top: 104px;
+}
+
+.yourTurn {
+	background-color: #A2C5F6;
+	border-color: #D0D2D3;
 }
 
 h3 {
@@ -50,9 +62,12 @@ h3 {
 	margin-bottom: 20px;
 }
 
-#levelP, #possiblePoints {
-	font-size: 100%;
+#levelP,
+#possiblePoints, 
+#levelP2,
+#possiblePoints2 {
 	color: #929497;
+	font-size: 100%;
 }
 
 label {
@@ -60,13 +75,13 @@ label {
 }
 
 input {
-	display: block;
-	width: 50%;
-	margin: 0px auto;
-	font-size: 135%;
-	padding: 0px 5px;
 	border-color: #929497;
 	border-style: solid;
+	display: block;
+	font-size: 135%;
+	margin: 0px auto;
+	padding: 0px 5px;
+	width: 50%;
 }
 
 ::placeholder {
@@ -95,15 +110,15 @@ input, select, textarea {
 }
 
 button {
-	border-radius: 40px;
 	background-color: #929497;
 	border-color: #929497;
+	border-radius: 40px;
 	border-style: solid;
 	color: #FFFFFF;
-	width: 24%;
 	font-size: 135%;
 	margin: 20px 15px;
 	margin-bottom: 10px;
+	width: 24%;
 }
 
 button:hover {
@@ -113,11 +128,6 @@ button:hover {
 
 button:focus {
 	outline-color: #EB008B;
-}
-
-#adjustButton {
-	width: 6%;
-	margin-bottom: 50px;
 }
 
 p {
@@ -140,19 +150,17 @@ h2 {
 	background-image: url(boom.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
-	/*background-color:rgba(0, 0, 0, 1.0);*/
 }
 
 #errorMessage {
 	color: #EB008B;
-	font-weight: bold;
 	display: none;
+	font-weight: bold;
 }
 
 #resetButton {
-	width: 51.5%;
 	margin: 10px auto;
-
+	width: 51.5%;
 }
 
 #resultSection {
@@ -172,12 +180,46 @@ h2 {
 
 
 #min, #max {
-	width: 6%;
 	display: inline-block;
+	font-size: 110%;
 	margin: 20px auto;
 	margin-top: 40px;
-	font-size: 110%;
+	width: 6%;
 }
 
+.modal {
+	background-color: rgba(0,0,0,0.6);
+	height: 100%;
+	left: 0;
+	padding-top: 100px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
 
+.modal-content {
+	background-color: #FFFFFF;
+	border: 1px solid black;
+	box-shadow: 0 0 1em #ED458B;
+	margin: 40px auto;
+	padding: 20px;
+	width: 90%;
+}
 
+h4 {
+	font-size: 150%;
+}
+
+.modal-content > p {
+	font-size: 120%;
+	margin: 25px 0px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+#player1Name, #player2Name  {
+	display: inline-block;
+	margin-bottom: 10px;
+	width: 25%;
+}

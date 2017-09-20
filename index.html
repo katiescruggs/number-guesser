@@ -4,7 +4,6 @@
 		<title>Number Guesser Game!</title>
 		<link rel="stylesheet" href="style.css">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
-
 	</head>
 
 	<body>
@@ -13,20 +12,24 @@
 			<h1><strong>Number</strong> Guesser</h1>
 		</header>
 		
-		<article id="scoreBoard">
-			<h3>Score: 0</h3>
+		<article class="yourTurn" id="scoreBoard">
+			<h3 id="playerOneScore"> Player 1's Score: 0</h3>
 			<p id='levelP'>Level 1</p>
 			<p id="possiblePoints">10 Points</p> 
 		</article>
 
-		<div>
+		<article id="scoreBoard2">
+			<h3 id="playerTwoScore"> Player 2's Score: 0</h3>
+			<p id='levelP2'>Level 1</p>
+			<p id="possiblePoints2">10 Points</p> 
+		</article>
+
+		<div id="mainContent">
 			<section>
 				<label for="min">Min:</label>
 				<input id="min" type="number" value="0">
 				<label for="max">Max:</label>
 				<input id="max" type="number" value ="100">
-
-				<!-- <button id="adjustButton">Go</button> -->
 
 				<input id="guess" type="number" placeholder="Enter your guess between 0 and 100" min="0" max="100">
 				<button id="guessButton" disabled="true">Guess</button>
@@ -41,6 +44,29 @@
 
 			<button id="resetButton" disabled="true">Reset</button>
 		</div>
+
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<h4><strong>Two-Player Number Guesser</strong></h4>
+				<p id="modalP1">Set the range of your guess at the beginning, then take turns guessing until someone gets awarded points for a correct guess. The possible points you can earn go down with each guess. Your score box will be highlighted when it is your turn. The first person to 100 points wins!</p>
+				<p id="modalP2">Enter the names of the players below, then click the button to begin.</p>
+
+				<label for="player1Name">Player 1's Name: </label>
+				<input type="text" id="player1Name" placeholder="Player 1">
+				
+				<br>
+
+				<label for="player2Name">Player 2's Name: </label>
+				<input type="text" id="player2Name" placeholder="Player 2">
+				
+				<br>
+
+				<button id="startButton">Start</button>
+			</div>
+		</div>
+
+		
+
 		<script type="text/javascript" src="script.js"></script>
 	</body>
 </html>
